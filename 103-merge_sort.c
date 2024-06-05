@@ -44,7 +44,7 @@ static void sort_merge(int *array, size_t lo, size_t hi)
 static void merge(int *array, size_t lo, size_t mid, size_t hi)
 {
 	size_t lo_len = mid - lo + 1, hi_len = hi - mid;
-	int in_lo[lo_len], in_hi[hi_len];
+	int in_lo[1024], in_hi[1024];
 	size_t iter = 0, jter = 0, pos = lo;
 
 	write(1, "Merging...\n", 11);
