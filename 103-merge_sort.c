@@ -17,7 +17,7 @@ void merge_sort(int *array, size_t size)
 }
 
 /**
- * merge - merge
+ * sort_merge - sort & merge divisions of input array, recursively
  * @array: incompletely sorted integer array
  * @lo: first index of input array
  * @hi: last index of input array
@@ -35,11 +35,11 @@ static void sort_merge(int *array, size_t lo, size_t hi)
 }
 
 /**
- * merge - .
- * @array:
- * @lo:
- * @mid:
- * @hi:
+ * merge - print & merge splits of input array, then print result of merge
+ * @array: incompletely sorted input array, sorted splits of which to be merged
+ * @lo: lowest index of input array
+ * @mid: middle index of input array
+ * @hi: highest index of input array
 */
 static void merge(int *array, size_t lo, size_t mid, size_t hi)
 {
@@ -57,9 +57,9 @@ static void merge(int *array, size_t lo, size_t mid, size_t hi)
 	for (iter = 0; pos <= hi; ++pos)
 	{
 		if (iter < lo_len && (jter >= hi_len || in_lo[iter] <= in_hi[jter]))
-			array[pos] = in_lo[iter], iter++;
+			array[pos] = in_lo[iter++];
 		else
-			array[pos] = in_hi[jter], jter++;
+			array[pos] = in_hi[jter++];
 	}
 	printf("[Done]: "), print_array(&array[lo], hi - lo + 1);
 }
