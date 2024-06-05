@@ -47,13 +47,13 @@ static void merge(int *array, size_t lo, size_t mid, size_t hi)
 	int in_lo[1024], in_hi[1024];
 	size_t iter = 0, jter = 0, pos = lo;
 
-	write(1, "Merging...\n", 11);
+	printf("Merging...\n");
 	for (; iter < lo_len; ++iter)
 		in_lo[iter] = array[lo + iter];
-	write(1, "[left]: ", 8), print_array(in_lo, lo_len);
+	printf("[left]: "), print_array(in_lo, lo_len);
 	for (iter = 0; iter < hi_len; ++iter)
 		in_hi[iter] = array[mid + 1 + iter];
-	write(1, "[right]: ", 9), print_array(in_hi, hi_len);
+	printf("[right]: "), print_array(in_hi, hi_len);
 	for (iter = 0; pos <= hi; ++pos)
 	{
 		if (iter < lo_len && (jter >= hi_len || in_lo[iter] <= in_hi[jter]))
@@ -61,5 +61,5 @@ static void merge(int *array, size_t lo, size_t mid, size_t hi)
 		else
 			array[pos] = in_hi[jter], jter++;
 	}
-	write(1, "[Done]: ", 8), print_array(&array[lo], hi - lo + 1);
+	printf("[Done]: "), print_array(&array[lo], hi - lo + 1);
 }
